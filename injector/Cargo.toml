@@ -1,0 +1,23 @@
+[package]
+name = "injector"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "injector"
+path = "src/lib.rs"
+
+[[bin]]
+name = "injector"
+path = "src/bin.rs"
+
+[dependencies]
+argh = "0.1.10"
+eyre = "0.6.8"
+sysinfo = "0.27.7"
+
+[target.'cfg(windows)'.dependencies]
+dll-injector = "0.1.2"
+
+[target.'cfg(target_family = "unix")'.dependencies]
+intruducer = { git = "https://github.com/vfsfitvnm/intruducer", rev = "e4a0285129" }
